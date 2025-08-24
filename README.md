@@ -28,5 +28,7 @@ After the libarian has logged into the system, the libarian will be provided wit
 
     5. LIST: Using the list command displays the entire libary catalog.
 
-    6. EXIT: entering exit will exit the libary management system.
+    6. SAVE: This option saves the current library catalog with quantity available.
+
+    7. EXIT: entering exit will exit the libary management system.
 
