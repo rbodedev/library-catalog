@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.List;
 import java.util.HashMap;
 
-public class BookmentSystem {
+public class LibraryManagementSystem {
     //main program entry point
     public static void main (String[] args) throws IOException {
         //the main library catalog
@@ -53,7 +53,7 @@ public class BookmentSystem {
                     //String variable holding librarian commands
                     String command;
                     System.out.println("Librarian mode activated");
-                    System.out.println("In this mode you can enter command types: ADD, CHECKIN, REMOVE, SEARCH, LIST, EXIT");
+                    System.out.println("In this mode you can enter command types: ADD, CHECKIN, REMOVE, SEARCH, LIST, SAVE, EXIT");
                     System.out.print("Please enter your command type: ");
                     command = librarianIn.nextLine();
                     //command to lower case for consistency
@@ -104,6 +104,9 @@ public class BookmentSystem {
                         String returning = librarianIn.nextLine();
                         bookCatalog = Book.returnBook(bookCatalog, returning);
                         System.out.println();
+                    //to save current catalog
+                    } else if (command.equals("save")) {
+                        Book.saveCatalog(bookCatalog);
                     //any entry by librarian not in command structure is rejected
                     } else {
                         System.out.println("Illegal or no command entered, deactivating librarian mode for security. If this problem persists contact support.");

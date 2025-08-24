@@ -2,7 +2,10 @@
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
-
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
 public class Book {
     //static method to create the book objects for addition to the book catalog repo
     public static Map createCatalog (String book) {
@@ -95,8 +98,26 @@ public class Book {
         }
         return bookCatalog;
     }
+    //static method to save the current catalog and inventory
+    public static void saveCatalog (List<Map<String, Object>> bookCatalog) {
+        String fp = "./saved_catalog";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fp))) {
+            for (int i = 0; i < bookCatalog.size(); i++) {
+                Map<String, Object> current = bookCatalog.get(i);
+                Object title = current.get("Title");
+                Object author = current.get("Author");
+                Object quantity = current.get("quantity");
+                String writeString = title + ": " + author + " (" + quantity + " available)";
+                writer.write(writeString);
+                writer.newLine();
+            } 
+            System.out.println("Current catalog saved");
+            }
+            catch (IOException e) {
+            e.printStackTrace();
+        }
 
-
+    }
 
 
 
