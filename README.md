@@ -1,4 +1,4 @@
-# library-catalog
+# library-management-program
 This program is a library management system allowing users to checkout books and track the book inventory in real-time.
 
 There are two levels of user tiers:
@@ -16,3 +16,11 @@ The user should enter the title of the book they wish to checkout. If there are 
 If the title is available, the system will notify the user that the checkout was successful.
 
 librarian workflow:
+After the libarian has logged into the system, the libarian will be provided with a number of command options:
+    1. ADD: The librarian can add a book to the library catalog.
+    2. CHECKIN: This command allows the librarian to check a checked out book back into the library management program.
+    3. REMOVE: The remove command allows the user to remove a book by title.
+    4. SEARCH: Librarians can search for a book by any portion of the title.
+    5. LIST: Using the list command displays the entire libary catalog.
+    6. EXIT: entering exit will exit the libary management system.
+
