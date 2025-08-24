@@ -33,7 +33,8 @@ public class LibraryManagementDemo {
         boolean loopBreak = true;
 
         while(loopBreak == true) {
-            System.out.print("please enter the title of the book you want to checkout or enter false to leave: ");
+            System.out.println();
+            System.out.print("please enter the title of the book you want to checkout or enter false to leave (enter \"librarian\" for librarian mode): ");
             String input = userIn.nextLine();
             bookCatalog = LibraryManage.checkoutBook(bookCatalog, input);
             System.out.println();
@@ -42,7 +43,7 @@ public class LibraryManagementDemo {
             }
             String librarianCheck = input.toLowerCase();
             if (librarianCheck.equals("librarian")) {
-                System.out.print("Please enter password: ");
+                System.out.print("Please enter password (note: it is \"pw\"): ");
                 input = librarianIn.nextLine();
                 if (input.equals("pw")) {
                     String command;
@@ -92,6 +93,7 @@ public class LibraryManagementDemo {
                         bookCatalog = LibraryManage.returnBook(bookCatalog, returning);
                         System.out.println();
                     } else {
+                        System.out.println("Illegal or no command entered, deactivating librarian mode for security. If this problem persists contact support.");
                         continue;
                     }
 
