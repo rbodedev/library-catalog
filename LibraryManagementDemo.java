@@ -11,11 +11,8 @@ public class LibraryManagementDemo {
     public static void main (String[] args) throws IOException {
 
         String filename = "books.txt"; 
-        
         List<Map<String, Object>> bookCatalog = new ArrayList<>();
-
         File file = new File(filename);
-        // System.out.println(file);
         Scanner booksList = new Scanner(file);
         Scanner userIn = new Scanner(System.in);
         Scanner librarianIn = new Scanner(System.in);
@@ -23,9 +20,7 @@ public class LibraryManagementDemo {
         while (booksList.hasNext()) {
             String titleAuthor;
             titleAuthor = booksList.nextLine();
-            // System.out.println(titleAuthor);
             bookCatalog.add(LibraryManage.createCatalog(titleAuthor));
-            // availableBooks.add(LibraryManage.createCatalog(titleAuthor));
         }
 
         LibraryManage.listTitles(bookCatalog);
