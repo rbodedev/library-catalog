@@ -2,6 +2,7 @@
 This program is a library management system allowing users to checkout books and track the book inventory in real-time.
 
 There are two levels of user tiers:
+    
     client:
         Any visitor of the library can utilize the client version of the program to check out books.
         Clients are limited to this checkout process only.
