@@ -11,7 +11,11 @@ public class LibraryManagementDemo {
 
         String filename = "books.txt"; 
         
-        List<Map<String, String>> bookCatalog = new ArrayList<>();
+        List<Map<String, Object>> bookCatalog = new ArrayList<>();
+        List<Map<String, Object>> availableBooks = new ArrayList<>();
+        List<Map<String, String>> unavailableBooks = new ArrayList<>();
+        List<Map<String, String>> intermediate = new ArrayList<>();
+        List<Map<String, String>> skip = List.of(Map.of("Tile", "skip", "Author", "skip"));
 
         File file = new File(filename);
         System.out.println(file);
@@ -23,7 +27,7 @@ public class LibraryManagementDemo {
             titleAuthor = booksList.nextLine();
             System.out.println(titleAuthor);
             bookCatalog.add(LibraryManage.createCatalog(titleAuthor));
-
+            availableBooks.add(LibraryManage.createCatalog(titleAuthor));
         }
 
         System.out.println(bookCatalog);
@@ -41,6 +45,15 @@ public class LibraryManagementDemo {
         }
 
         LibraryManage.listTitles(bookCatalog);
+
+        intermediate = LibraryManage.checkoutBook(availableBooks, unavailableBooks, "Hairy Ponder and the Rock");
+        if (intermediate.equals())
+        unavailableBooks = LibraryManage.checkoutBook(availableBooks, unavailableBooks, "Hairy Ponder and the Rock");
+        availableBooks.removeAll(unavailableBooks);
+        LibraryManage.listTitles(availableBooks);
+        LibraryManage.listTitles(unavailableBooks);
+
+
     }
 
 
