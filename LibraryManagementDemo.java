@@ -38,7 +38,6 @@ public class LibraryManagementDemo {
             String input = userIn.nextLine();
             //call to static method in LibraryManage class for user to checkout a book
             bookCatalog = LibraryManage.checkoutBook(bookCatalog, input);
-            System.out.println();
             //user continuation check
             if (input.equals("false")) {
                 loopBreak = false;

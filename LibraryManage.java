@@ -29,6 +29,7 @@ public class LibraryManage {
     }
     //static method to checkout a book by a client
     public static List<Map<String, Object>> checkoutBook (List<Map<String, Object>> bookCatalog, String bookTitle) {
+        List<Map<String, Object>> original = bookCatalog;
         for (int i = 0; i < bookCatalog.size(); i++) {
             Map<String, Object> book = bookCatalog.get(i);
             if (book.get("Title").equals(bookTitle) && ((Integer) book.get("quantity")) == 0) {
