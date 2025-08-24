@@ -1,9 +1,10 @@
+//imports
 import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
 public class LibraryManage {
-
+    //static method to create the book objects for addition to the book catalog repo
     public static Map createCatalog (String book) {
         Map<String, Object> dict = new HashMap<>();
         Integer onHand = 1;
@@ -14,7 +15,7 @@ public class LibraryManage {
         dict.put("quantity", onHand);
         return dict; 
     }
-
+    //static method to list all the books in the libary catalog
     public static void listTitles (List<Map<String, Object>> bookCatalog) {
         for (int i = 0; i < bookCatalog.size(); i++) {
             
@@ -26,7 +27,7 @@ public class LibraryManage {
 
         }
     }
-
+    //static method to checkout a book by a client
     public static List<Map<String, Object>> checkoutBook (List<Map<String, Object>> bookCatalog, String bookTitle) {
         for (int i = 0; i < bookCatalog.size(); i++) {
             Map<String, Object> book = bookCatalog.get(i);
@@ -44,7 +45,7 @@ public class LibraryManage {
         }
         return bookCatalog;
     }
-
+    // static librarian method to remove a book from the libary catalog
     public static List<Map<String, Object>> removeBook (List<Map<String, Object>> bookCatalog, String bookTitle) {
         for (int i = 0; i < bookCatalog.size(); i++) {
             Map<String, Object> book = bookCatalog.get(i);
@@ -58,7 +59,7 @@ public class LibraryManage {
         }
         return bookCatalog;
     }
-
+    //static method for the libarian to seach for a book
     public static void searchBook (List<Map<String, Object>> bookCatalog, String search) {
         
         for (int i = 0; i < bookCatalog.size(); i++) {
@@ -76,7 +77,7 @@ public class LibraryManage {
         }
 
     }
-
+    //static method for a librarian to return a book back to the library catalog (increment)
     public static List<Map<String, Object>> returnBook (List<Map<String, Object>> bookCatalog, String bookTitle) {
         for (int i = 0; i < bookCatalog.size(); i++) {
             Map<String, Object> book = bookCatalog.get(i);
