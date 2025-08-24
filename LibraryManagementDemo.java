@@ -1,8 +1,9 @@
 // imports
 import java.util.Scanner;
-
+import java.util.ArrayList;
 import java.io.*;
-
+import java.util.Map;
+import java.util.List;
 
 
 public class LibraryManagementDemo {
@@ -10,16 +11,36 @@ public class LibraryManagementDemo {
 
         String filename = "books.txt"; 
         
+        List<Map<String, String>> bookCatalog = new ArrayList<>();
+
         File file = new File(filename);
         System.out.println(file);
-        Scanner catalog = new Scanner(file);
+        Scanner booksList = new Scanner(file);
+        Scanner userIn = new Scanner(System.in);
         
-        
-        while (catalog.hasNext()) {
+        while (booksList.hasNext()) {
             String titleAuthor;
-            titleAuthor = catalog.nextLine();
+            titleAuthor = booksList.nextLine();
             System.out.println(titleAuthor);
+            bookCatalog.add(LibraryManage.createCatalog(titleAuthor));
+
         }
+
+        System.out.println(bookCatalog);
+
+        boolean loopBreak = true;
+
+        while(loopBreak == true) {
+            System.out.print("testtest: ");
+            String input = userIn.nextLine();
+            System.out.println("testtest");
+            if (input.equals("false")) {
+                loopBreak = false;
+            }
+
+        }
+
+        LibraryManage.listTitles(bookCatalog);
     }
 
 
